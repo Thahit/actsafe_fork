@@ -20,7 +20,12 @@ class ReplayBuffer:
     ):
         self.episode_id = 0
         self.dtype = np.float32
-        self.obs_dtype = np.uint8
+
+        if len(observation_shape)>2:#img
+            self.obs_dtype = np.uint8
+        else:# vector
+            self.obs_dtype = np.float32
+
         self.observation = np.zeros(
             (
                 capacity,

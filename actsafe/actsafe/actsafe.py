@@ -263,7 +263,7 @@ def _prepare_features(batch: TrajectoryData) -> tuple[rssm.Features, jax.Array]:
 
 
 def preprocess(input: np.ndarray) -> np.ndarray:
-    if input.ndim == 4:
+    if input.ndim >= 4:
         return input / 255.0 - 0.5
     else:
         return input
